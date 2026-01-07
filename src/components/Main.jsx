@@ -1,5 +1,6 @@
 
-export default function Main({ person, educations, experiences, skills, divRef}){
+export default function Main({ person, educations, experiences, skills, divRef, handleDeleteExperience, handleDeleteEducation, handleDeleteSkill}){
+       
     return(
         <main className="mainSect" id="cv" ref={divRef}>
             <section className="personDetailsMain">
@@ -20,7 +21,8 @@ export default function Main({ person, educations, experiences, skills, divRef})
                 <h3>Skills</h3>
                     <ul>
                         {skills.map((skill, index) => (
-                            <li key={index}>{skill}</li>
+                            
+                            <li key={index}>{skill} <button className="deleteSkill" onClick={() => handleDeleteSkill(index)}>x</button></li>
                         ))}
                     </ul>
             </section>
@@ -35,6 +37,7 @@ export default function Main({ person, educations, experiences, skills, divRef})
                         {experiences.map((work, index) => (
                             <div className="workBox" key={index}>
                             <p className="positionName">{work.positionName}</p>
+                            <button className="delete" onClick={() => handleDeleteExperience(index)}>x</button>
                             <div className="smallerDetails">
                                 <p className="companyName">{work.companyName}</p>
                                 <p className="workDate"> {work.start}-{work.end || "now"}</p>
@@ -49,7 +52,7 @@ export default function Main({ person, educations, experiences, skills, divRef})
                         {educations.map((edu, index) => (
                             <div className="EducationBox" key={index}>
                             <p className="SchoolName">{edu.school}</p>
-
+                            <button className="delete" onClick={() => handleDeleteEducation(index)}>x</button>
                             <div className="smallerDetailsEducation">
                                 <p className="schoolCity">{edu.city}</p>
                                 <p className="workDate">

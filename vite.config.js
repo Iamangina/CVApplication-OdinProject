@@ -10,5 +10,6 @@ export default defineConfig({
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/CVApplication-OdinProject/',
   plugins: [react()],
 })

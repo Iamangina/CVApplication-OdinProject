@@ -9,18 +9,36 @@ function App() {
   const divRef = useRef(null);
 
    const handleDownloadPdf = () => {
-  if (!divRef.current) return;
+    if (!divRef.current) return;
 
-  html2pdf()
-    .set({
-      margin: 10,
-      filename: "cv.pdf",
-      html2canvas: { scale: 2 },
-      jsPDF: { orientation: "portrait", unit: "mm", format: "a4" },
-    })
-    .from(divRef.current)
-    .save();
+    html2pdf()
+      .set({
+        margin: 10,
+        filename: "cv.pdf",
+        html2canvas: { scale: 2 },
+        jsPDF: { orientation: "portrait", unit: "mm", format: "a4" },
+      })
+      .from(divRef.current)
+      .save();
 };
+
+  const handleDeleteExperience = (indexToDelete) => {
+    setExperiences(prev =>
+      prev.filter((_, index) => index !== indexToDelete)
+    );
+  };
+
+  const handleDeleteEducation = (indexToDelete) => {
+    setEducations(prev =>
+      prev.filter((_, index) => index !== indexToDelete)
+    );
+  };
+
+    const handleDeleteSkill = (indexToDelete) => {
+    setSkills(prev =>
+      prev.filter((_, index) => index !== indexToDelete)
+    );
+  };
 
   const [person, setPerson] = useState({
     firstName: "",
@@ -54,7 +72,10 @@ function App() {
         person={person}
         educations={educations}
         experiences={experiences}
-        skills={skills}/>
+        skills={skills}
+        handleDeleteExperience={handleDeleteExperience}
+        handleDeleteEducation={handleDeleteEducation}
+        handleDeleteSkill={handleDeleteSkill}/>
 
     </>
   )
