@@ -10,12 +10,12 @@ html, body{
 
 #root{
     display: grid;
-    grid-template: 1fr 9fr/ 5fr 5fr;
+    grid-template: 1fr 9fr/ 5fr 1fr 5fr;
     height: 100vh;
 }
 /* Header */
 .header{
-    grid-area: 1/1/2/3;
+    grid-area: 1/1/2/4;
     background-color: rgb(1, 15, 21);
     padding: .1em 1em;
     display: flex;
@@ -41,7 +41,7 @@ button{
 /* Category Section */
 .categorySect{
     padding: 0px 4em;
-    grid-area: 2/1/2/3;
+    grid-area: 2/1/3/2;
     overflow: auto;
     padding-bottom: 20em;
 }
@@ -133,12 +133,11 @@ textarea{
 
 /* Main Section */
 .mainSect{
-    border-radius: 5px;
-    grid-area: 2/2/3/3;
+    grid-area: 2/3/3/4;
     justify-self: center;
     border: 1px solid black;
+    box-sizing: border-box;
     margin: 1em;
-    overflow-y: auto;
     height: 974px;
     width: 714px;
     display: grid;
@@ -148,15 +147,18 @@ textarea{
     height: 150px;
     width: 150px;
     border-radius: 100%;
-    border: 1px solid black;
+    border: 5px solid rgb(255, 255, 255);
     background-color: white;
     object-fit: cover
     
 }
 .personDetailsMain h3{
-    text-decoration: underline;
-    text-underline-offset: 4px;
     align-self: flex-start;
+}
+.lineMain{
+    width: 100%;
+    border-bottom: 1px solid #e3e5e9;
+    margin: 0.5em 0;
 }
 h4{
     line-height: 5px;
@@ -179,7 +181,6 @@ h5{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #5c6c87;
     padding: 1em;
     color: white;
 }
@@ -215,19 +216,54 @@ h5{
     margin-top: 0px;
     font-size: 12px;
 }
-ul{
-    align-self: self-start;
+.personDetailsMain ul {
+    align-self: flex-start;
+    padding-left: 0;       
+    margin-left: 0;         
     list-style: none;
+    width: 100%;
 }
 li{
     display: flex;
+    justify-content: space-between;
 }
-.delete, .deleteSkill{
+.delete{
     border: none;
     background-color: transparent;
     font-weight: bold;
     margin-left: 97%;
 }
 .deleteSkill{
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
     color: white;
+}
+
+/* Styles */
+
+.styleSection{
+    grid-area: 2/2/3/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.styleSection input{
+    width: 50px;
+    padding: 0px;
+    height: 50px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.btnFont{
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    border: solid 1px #303846;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    background-color: #e3e5e9;
 }

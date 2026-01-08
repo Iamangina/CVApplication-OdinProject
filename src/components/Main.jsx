@@ -1,9 +1,9 @@
 
-export default function Main({ person, educations, experiences, skills, divRef, handleDeleteExperience, handleDeleteEducation, handleDeleteSkill}){
+export default function Main({ person, educations, experiences, skills, divRef, handleDeleteExperience, handleDeleteEducation, handleDeleteSkill, style}){
        
     return(
-        <main className="mainSect" id="cv" ref={divRef}>
-            <section className="personDetailsMain">
+        <main className="mainSect" id="cv" ref={divRef} style={{fontFamily: style.fontFamily}}>
+            <section className="personDetailsMain" style={{backgroundColor: style.color}}>
                 {person.photo && (
                     <img src={person.photo} className="personPhoto" />
                     )}
@@ -13,12 +13,14 @@ export default function Main({ person, educations, experiences, skills, divRef, 
                 </div>
                 <h5>{person.position}</h5>
                 <h3>Personal Details</h3>
+                <div className="lineMain"></div>
                 <div className="personDataMain">
                     <h4 className="emailMain">{person.email}</h4>
                     <h4 className="phoneMain">{person.phone}</h4>
-                    <h4 className="birthDateMain">Date of birth: {person.birthDate}</h4>
+                    <h4 className="linkMain">{person.link}</h4>
                 </div>
                 <h3>Skills</h3>
+                <div className="lineMain"></div>
                     <ul>
                         {skills.map((skill, index) => (
                             
@@ -26,7 +28,7 @@ export default function Main({ person, educations, experiences, skills, divRef, 
                         ))}
                     </ul>
             </section>
-            <section className="personInfo">
+            <section className="personInfo" style={{color: style.color}}>
                 <div className="allSections">
                     <h2 className="profile">Profile</h2>
                     <div className="line"></div>

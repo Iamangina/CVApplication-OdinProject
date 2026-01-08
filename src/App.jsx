@@ -1,6 +1,7 @@
 import Categories from './components/Categories'
 import Main from './components/Main'
 import Header from './components/Header'
+import Styles from './components/Styles';
 import { useState, useRef } from 'react';
 import html2pdf from "html2pdf.js";
 
@@ -39,13 +40,18 @@ function App() {
       prev.filter((_, index) => index !== indexToDelete)
     );
   };
+  
+  const [style, setStyle] = useState({
+    color: "#5c6c87",
+    fontFamily: "'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"
+  });
 
   const [person, setPerson] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    birthDate: "",
+    link: "",
     photo: null,
     position: "",
     summary: ""
@@ -67,6 +73,10 @@ function App() {
         setExperiences={setExperiences}
         skills={skills}
         setSkills={setSkills}/>
+      <Styles
+        style={style}
+        setStyle={setStyle}
+      />
       <Main 
         divRef={divRef}
         person={person}
@@ -75,8 +85,8 @@ function App() {
         skills={skills}
         handleDeleteExperience={handleDeleteExperience}
         handleDeleteEducation={handleDeleteEducation}
-        handleDeleteSkill={handleDeleteSkill}/>
-
+        handleDeleteSkill={handleDeleteSkill}
+        style={style}/>
     </>
   )
 }

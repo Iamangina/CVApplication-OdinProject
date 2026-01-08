@@ -116,14 +116,14 @@ export default function Categories({
                                         }></input>
                                 </div>
                                 <div>
-                                    <label htmlFor="birthday">Date of birth</label>
+                                    <label htmlFor="link">Link</label>
                                     <input 
-                                        id="birthday"
-                                        type="date"
-                                        placeholder="01.01.98"
-                                        value={person.birthDate}
+                                        id="link"
+                                        type="url"
+                                        placeholder="yourWebsite.com"
+                                        value={person.link}
                                         onChange={(e) =>
-                                        setPerson({ ...person, birthDate: e.target.value })
+                                        setPerson({ ...person, link: e.target.value })
                                         }></input>
                                 </div>
                             </div>
